@@ -83,7 +83,7 @@ const trucks: Truck[] = [
   {
     manufacturer: "DAF",
     model: "XF Euro 6",
-    imagePath: "/image/trucks/daf_xf.png",
+    imagePath: "/images/trucks/daf_xf.png",
     releaseDate: new Date("11.11.2014"),
     engines: [
       { name: "МХ-11 270 Euro 6, 2017", power: "370 л. с. (270кВт)", torque: "1 800/1 900 Нм на 900-1 400 об/м", cost: 12000, unlockLevel: 0 },
@@ -148,7 +148,7 @@ const trucks: Truck[] = [
   {
     manufacturer: "MAN",
     model: "TG3 TGX",
-    imagePath: "/image/trucks/man_tgx_2020.png",
+    imagePath: "/images/trucks/man_tgx_2020.png",
     releaseDate: new Date("16.05.2023"),
     engines: [
       { name: "D1556 LF09 243 Euro 6d", power: "330 л. с. (243кВт)", torque: "1 600 Нм на 1 000 об/м", cost: 8160, unlockLevel: 0 },
@@ -243,28 +243,6 @@ const trucks: Truck[] = [
       { name: "ClassicSpace", cost: 8500, unlockLevel: 1 },
       { name: "BigSpace", cost: 17000, unlockLevel: 7 }
     ]
-  },
-  {
-    manufacturer: "MAN",
-    model: "TGX",
-    imagePath: "/images/trucks/man_tgx.jpg",
-    releaseDate: new Date("2017-01-01"),
-    engines: [
-      { name: "D2676 LF", power: "400 hp", torque: "1900 Nm", cost: 44000, unlockLevel: 7 },
-      { name: "D2676 LF", power: "440 hp", torque: "2100 Nm", cost: 51000, unlockLevel: 11 }
-    ],
-    transmissions: [
-      { name: "TipMatic", gears: 12, ratioValues: "16.69-1.00", finalDriveRatio: 2.85, cost: 9200, unlockLevel: 8 },
-      { name: "TipMatic", gears: 12, ratioValues: "15.86-1.00", finalDriveRatio: 3.08, cost: 12800, unlockLevel: 14 }
-    ],
-    chassis: [
-      { wheelFormula: "4x2", totalNumberOfAxles: 2, numberOfDrivenAxles: 1, wheelbase: "3700mm", cost: 15800, unlockLevel: 1 },
-      { wheelFormula: "6x2", totalNumberOfAxles: 3, numberOfDrivenAxles: 1, wheelbase: "4100mm", cost: 23000, unlockLevel: 7 }
-    ],
-    cabins: [
-      { name: "M", cost: 8800, unlockLevel: 1 },
-      { name: "XLX", cost: 16500, unlockLevel: 8 }
-    ]
   }
 ]
 
@@ -306,22 +284,22 @@ const trailers: Trailer[] = [
     cargoTypesTransported: ["Food", "Beverages", "Paper", "Chemicals"]
   },
   {
-    manufacturer: "Schmitz",
-    model: "S.KO",
-    imagePath: "/images/trailers/schmitz_sko.jpg",
-    trailerType: "Semi-trailer",
-    bodyType: "Refrigerated",
+    manufacturer: "Standard Trilers",
+    model: "FLB",
+    imagePath: "/images/trailers/standard_flb.png",
+    trailerType: "Одиночный прицеп",
+    bodyType: "Платформа",
     bodyInternalDimensions: {
-      length: 13400,
-      height: 2600,
-      width: 2460
+      length: 13620,
+      height: 2650,
+      width: 2550
     },
-    curbWeight: 8200,
-    numberOfAxles: 3,
-    numberOfLiftAxles: 1,
+    curbWeight: 5300,
+    numberOfAxles: 2,
+    numberOfLiftAxles: 0,
     numberOfSteeredAxles: 0,
-    overallLength: 13620,
-    cargoTypesTransported: ["Frozen food", "Fresh produce", "Pharmaceuticals"]
+    overallLength: 13700,
+    cargoTypesTransported: ["Строительное оборудование", "Строительные материалы"]
   },
   {
     manufacturer: "Kogel",
@@ -610,124 +588,790 @@ const maps: Map[] = [
 const dlcs: DLC[] = [
   {
     name: "Going East!",
-    tag: "going_east",
-    content: "Expand your trucking empire to Eastern Europe with Poland, Czech Republic, Slovakia, and Hungary",
+    tag: "Расширение карты",
+    content: "13 городов, 4 страны",
     releaseDate: new Date("2013-09-20")
   },
   {
-    name: "Scandinavia",
-    tag: "scandinavia",
-    content: "Experience the Nordic beauty with Denmark, Norway, and Sweden",
+    name: "Halloween Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "8 пугающих раскрасок",
+    releaseDate: new Date("2013-10-24")
+  },
+  {
+    name: "Ice Cold Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 зимних раскрасок",
+    releaseDate: new Date("2013-12-10")
+  },
+  {
+    name: "Force of Nature Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 раскрасок, вдохновлённых стихиями природы",
+    releaseDate: new Date("2014-04-04")
+  },
+  {
+    name: "Metallic Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "10 раскрасок типа металлик",
+    releaseDate: new Date("2014-05-19")
+  },
+  {
+    name: "UK Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 британских раскраски",
+    releaseDate: new Date("2014-05-20")
+  },
+  {
+    name: "Irish Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 ирландских раскраски",
+    releaseDate: new Date("2014-05-20")
+  },
+  {
+    name: "Scottish Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 шотландских раскраски",
+    releaseDate: new Date("2014-05-20")
+  },
+  {
+    name: "Flip Paint Designs",
+    tag: "Набор раскрасок",
+    content: "11 настраиваемых раскрасок, использующих «flip-flake» эффект",
+    releaseDate: new Date("2014-05-29")
+  },
+  {
+    name: "Brazilian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 бразильские раскраски",
+    releaseDate: new Date("2014-06-11")
+  },
+  {
+    name: "Polish Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 польских раскраски",
+    releaseDate: new Date("2014-07-01")
+  },
+  {
+    name: "Canadian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 канадских раскраски",
+    releaseDate: new Date("2014-07-01")
+  },
+  {
+    name: "USA Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 американских раскраски",
+    releaseDate: new Date("2014-07-03")
+  },
+  {
+    name: "Fantasy Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 фантастических раскрасок",
+    releaseDate: new Date("2014-07-15")
+  },
+  {
+    name: "High Power Cargo Pack",
+    tag: "Набор грузов",
+    content: "7 новых тяжелых грузов",
+    releaseDate: new Date("2014-08-14")
+  },
+  {
+    name: "German Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 немецких раскраски",
+    releaseDate: new Date("2014-10-01")
+  },
+  {
+    name: "French Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 французских раскраски",
+    releaseDate: new Date("2014-10-10")
+  },
+  {
+    name: "Czech Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 чешских раскраски",
+    releaseDate: new Date("2014-10-24")
+  },
+  {
+    name: "Christmas Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 рождественских раскрасок",
+    releaseDate: new Date("2014-12-03")
+  },
+  {
+    name: "Russian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 российских раскраски",
+    releaseDate: new Date("2015-03-23")
+  },
+  {
+    name: "Viking Legends",
+    tag: "Набор раскрасок",
+    content: "6 раскрасок с тематикой викингов",
     releaseDate: new Date("2015-05-06")
   },
   {
+    name: "Norwegian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 норвежских раскраски",
+    releaseDate: new Date("2015-05-06")
+  },
+  {
+    name: "Swedish Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 шведских раскраски",
+    releaseDate: new Date("2015-05-06")
+  },
+  {
+    name: "Danish Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 датских раскраски",
+    releaseDate: new Date("2015-05-06")
+  },
+  {
+    name: "Scandinavia",
+    tag: "Расширение карты",
+    content: "27 городов, 3 страны, груз «живой скот» (коровы)",
+    releaseDate: new Date("2015-05-06")
+  },
+  {
+    name: "Prehistoric Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 раскрасок с доисторической тематикой",
+    releaseDate: new Date("2015-07-28")
+  },
+  {
+    name: "Cabin Accessories",
+    tag: "Тюнинг",
+    content: "Аксессуары в салон тягача",
+    releaseDate: new Date("2015-09-30")
+  },
+  {
+    name: "Japanese Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 японских раскраски",
+    releaseDate: new Date("2015-11-09")
+  },
+  {
+    name: "Wheel Tuning Pack",
+    tag: "Тюнинг",
+    content: "Новые колёса и тюнинг",
+    releaseDate: new Date("2016-04-13")
+  },
+  {
+    name: "Hungarian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "5 венгерских раскрасок",
+    releaseDate: new Date("2016-04-16")
+  },
+  {
+    name: "Turkish Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 турецких раскраски",
+    releaseDate: new Date("2016-04-19")
+  },
+  {
+    name: "Italian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 итальянских раскраски",
+    releaseDate: new Date("2016-05-04")
+  },
+  {
+    name: "Slovak Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 словацких раскраски",
+    releaseDate: new Date("2016-05-04")
+  },
+  {
+    name: "Spanish Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "5 испанских раскрасок",
+    releaseDate: new Date("2016-06-01")
+  },
+  {
+    name: "Window Flags",
+    tag: "Тюнинг",
+    content: "Флаги стран и не только, которые можно устанавливать на окна тягачей",
+    releaseDate: new Date("2016-06-08")
+  },
+  {
+    name: "Chinese Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 китайских раскраски",
+    releaseDate: new Date("2016-06-21")
+  },
+  {
+    name: "South Korean Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 южнокорейских раскраски",
+    releaseDate: new Date("2016-06-21")
+  },
+  {
+    name: "Mighty Griffin Tuning Pack",
+    tag: "Тюнинг",
+    content: "Расширенный тюнинг для тягачей Scania",
+    releaseDate: new Date("2016-06-23")
+  },
+  {
+    name: "Austrian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 австрийских раскраски",
+    releaseDate: new Date("2016-07-15")
+  },
+  {
+    name: "Swiss Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 швейцарских раскраски",
+    releaseDate: new Date("2016-07-15")
+  },
+  {
+    name: "Schwarzmüller Trailer Pack",
+    tag: "Набор трейлеров",
+    content: "5 лицензированных трейлеров и аксессуары в салон тягача",
+    releaseDate: new Date("2016-09-16")
+  },
+  {
+    name: "Pirate Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 раскраски с пиратской тематикой",
+    releaseDate: new Date("2016-09-19")
+  },
+  {
+    name: "Finnish Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 финских раскраски",
+    releaseDate: new Date("2016-12-01")
+  },
+  {
+    name: "Belgian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 бельгийских раскраски",
+    releaseDate: new Date("2016-12-01")
+  },
+  {
     name: "Vive la France!",
-    tag: "vive_la_france",
-    content: "Discover the diverse landscapes and rich culture of France",
+    tag: "Расширение карты",
+    content: "23 французских города, новые компании и достижения",
     releaseDate: new Date("2016-12-05")
   },
   {
+    name: "Michelin Fan Pack",
+    tag: "Тюнинг",
+    content: "Шины, раскраски и аксессуары в салон тягача",
+    releaseDate: new Date("2017-01-10")
+  },
+  {
+    name: "Australian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 австралийских раскраски",
+    releaseDate: new Date("2017-01-20")
+  },
+  {
+    name: "Romanian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 румынских раскраски",
+    releaseDate: new Date("2017-01-20")
+  },
+  {
+    name: "Dragon Truck Design Pack",
+    tag: "Набор раскрасок",
+    content: "Раскраски в стиле Китайского Нового Года",
+    releaseDate: new Date("2017-02-02")
+  },
+  {
+    name: "Valentine's Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "7 раскрасок ко дню Святого Валентина и 1 аксессуар в кабину",
+    releaseDate: new Date("2017-02-10")
+  },
+  {
+    name: "Raven Truck Design Pack",
+    tag: "Тюнинг",
+    content: "Раскраски, аксессуары для кабины и диски для колёс",
+    releaseDate: new Date("2017-03-07")
+  },
+  {
+    name: "Heavy Cargo Pack",
+    tag: "Грузы и трейлеры",
+    content: "8 негабаритных грузов, 2 трейлера",
+    releaseDate: new Date("2017-05-12")
+  },
+  {
+    name: "XF Tuning Pack",
+    tag: "Тюнинг",
+    content: "Расширенный тюнинг для тягачей DAF",
+    releaseDate: new Date("2017-08-18")
+  },
+  {
     name: "Italia",
-    tag: "italia",
-    content: "Explore the boot-shaped peninsula with iconic Italian cities and scenery",
+    tag: "Расширение карты",
+    content: "22 итальянских города, новые компании и достижения",
     releaseDate: new Date("2017-12-05")
   },
   {
+    name: "Special Transport",
+    tag: "Грузы и трейлеры",
+    content: "11 тяжёлых грузов, 4 специальных трейлера, новые игровые механики",
+    releaseDate: new Date("2017-12-13")
+  },
+  {
+    name: "Portuguese Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 португальских раскраски",
+    releaseDate: new Date("2018-06-08")
+  },
+  {
+    name: "Dutch Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 нидерландских раскраски",
+    releaseDate: new Date("2018-07-26")
+  },
+  {
+    name: "Space Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 космических раскрасок и аксессуары в салон тягача",
+    releaseDate: new Date("2018-08-31")
+  },
+  {
+    name: "Krone Trailer Pack",
+    tag: "Набор трейлеров",
+    content: "6 лицензированных трейлеров, тюнинг, аксессуары в кабину и раскраски",
+    releaseDate: new Date("2018-09-17")
+  },
+  {
     name: "Beyond the Baltic Sea",
-    tag: "beyond_baltic_sea",
-    content: "Visit the Baltic states of Lithuania, Latvia, Estonia, and parts of Russia and Finland",
+    tag: "Расширение карты",
+    content: "35 городов, 5 стран",
     releaseDate: new Date("2018-11-29")
+  },
+  {
+    name: "Estonian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 эстонских раскраски",
+    releaseDate: new Date("2018-11-29")
+  },
+  {
+    name: "Latvian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 латвийских раскраски",
+    releaseDate: new Date("2018-11-29")
+  },
+  {
+    name: "Lithuanian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 литовских раскраски",
+    releaseDate: new Date("2018-11-29")
+  },
+  {
+    name: "Goodyear Tyres Pack",
+    tag: "Тюнинг",
+    content: "Шины, раскраски и аксессуары в салон тягача",
+    releaseDate: new Date("2019-08-02")
+  },
+  {
+    name: "Actros Tuning Pack",
+    tag: "Тюнинг",
+    content: "Расширенный тюнинг для тягачей Mercedes-Benz",
+    releaseDate: new Date("2019-09-04")
+  },
+  {
+    name: "Pink Ribbon Charity Pack",
+    tag: "Набор раскрасок",
+    content: "3 раскраски «Розовая лента»",
+    releaseDate: new Date("2019-10-01")
+  },
+  {
+    name: "Road to the Black Sea",
+    tag: "Расширение карты",
+    content: "30 городов, 3 страны, новые компании",
+    releaseDate: new Date("2019-12-05")
+  },
+  {
+    name: "Bulgarian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 болгарских раскраски",
+    releaseDate: new Date("2019-12-05")
+  },
+  {
+    name: "HS-Schoch Tuning Pack",
+    tag: "Тюнинг",
+    content: "Немного тюнинг-деталей от HS-Schoch для тягачей всех производителей",
+    releaseDate: new Date("2020-03-19")
+  },
+  {
+    name: "FH Tuning Pack",
+    tag: "Тюнинг",
+    content: "Расширенный тюнинг для тягачей Volvo",
+    releaseDate: new Date("2020-06-02")
+  },
+  {
+    name: "Super Stripes Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 уникальных «полосатых» раскрасок для тягачей и 2 для трейлеров",
+    releaseDate: new Date("2020-09-17")
+  },
+  {
+    name: "Lunar New Year Pack",
+    tag: "Набор раскрасок",
+    content: "12 уникальных раскрасок к Китайскому Новому Году",
+    releaseDate: new Date("2021-02-10")
+  },
+  {
+    name: "Iberia",
+    tag: "Расширение карты",
+    content: "Испания и Португалия, 51 город",
+    releaseDate: new Date("2021-04-08")
+  },
+  {
+    name: "Volvo Construction Equipment DLC",
+    tag: "Грузы и трейлеры",
+    content: "7 лицензированных грузов с тематикой Volvo для перевозки",
+    releaseDate: new Date("2021-09-23")
+  },
+  {
+    name: "Ukrainian Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "4 украинские раскраски",
+    releaseDate: new Date("2022-03-04")
+  },
+  {
+    name: "Renault Trucks T Tuning Pack",
+    tag: "Тюнинг",
+    content: "Расширенный тюнинг для Renault T",
+    releaseDate: new Date("2022-05-25")
+  },
+  {
+    name: "Street Art Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 уникальных раскрасок в стиле Street Art",
+    releaseDate: new Date("2022-11-07")
+  },
+  {
+    name: "Feldbinder Trailer Pack",
+    tag: "Набор трейлеров",
+    content: "4 лицензированных трейлера, детали для тюнинга, аксессуары в салон и раскраски",
+    releaseDate: new Date("2022-11-30")
+  },
+  {
+    name: "Wielton Trailer Pack",
+    tag: "Набор трейлеров",
+    content: "6 лицензированных трейлеров, детали для тюнинга, аксессуары в салон и раскраски",
+    releaseDate: new Date("2023-07-17")
+  },
+  {
+    name: "Modern Lines Paint Jobs Pack",
+    tag: "Набор раскрасок",
+    content: "6 «современных» раскрасок для тягачей и трейлеров",
+    releaseDate: new Date("2023-09-11")
+  },
+  {
+    name: "West Balkans",
+    tag: "Расширение карты",
+    content: "30 городов в восьми странах",
+    releaseDate: new Date("2023-10-19")
+  },
+  {
+    name: "TIRSAN Trailer Pack",
+    tag: "Набор трейлеров",
+    content: "6 лицензированных трейлеров, детали для тюнинга, аксессуары в салон и раскраски",
+    releaseDate: new Date("2023-10-30")
+  },
+  {
+    name: "JCB Equipment Pack",
+    tag: "Грузы и трейлеры",
+    content: "8 лицензированных грузов с тематикой JCB для перевозки + новые аксессуары в салон тягача",
+    releaseDate: new Date("2024-05-23")
+  },
+  {
+    name: "Schmitz Cargobull Trailer Pack",
+    tag: "Набор трейлеров",
+    content: "6 лицензированных трейлеров, детали для тюнинга, аксессуары в салон и раскраски",
+    releaseDate: new Date("2024-07-22")
+  },
+  {
+    name: "Kässbohrer Trailer Pack",
+    tag: "Набор трейлеров",
+    content: "9 лицензированных трейлеров + 9 аксессуаров в салон тягача",
+    releaseDate: new Date("2024-09-18")
+  },
+  {
+    name: "Greece",
+    tag: "Расширение карты",
+    content: "Вся Греция",
+    releaseDate: new Date("2024-12-04")
   }
 ]
-
 const carDealerships: CarDealership[] = [
   {
-    "name": "Scania",
-    "locations": [
+    name: "DAF",
+    locations: [
       {
-        "country": "Германия",
-        "cities": ["Берлин", "Гамбург", "Мюнхен"]
+        country: "Великобритания",
+        cities: ["Глазго", "Кардифф"]
       },
       {
-        "country": "Швеция",
-        "cities": ["Стокгольм", "Гётеборг"]
+        country: "Испания",
+        cities: ["Севилья", "Бургос"]
       },
       {
-        "country": "Великобритания",
-        "cities": ["Лондон", "Манчестер"]
+        country: "Италия",
+        cities: ["Катания"]
+      },
+      {
+        country: "Нидерланды",
+        cities: ["Амстердам"]
+      },
+      {
+        country: "Россия",
+        cities: ["Санкт-Петербург"]
+      },
+      {
+        country: "Франция",
+        cities: ["Бордо"]
       }
     ]
   },
   {
-    "name": "Volvo",
-    "locations": [
+    name: "Iveco",
+    locations: [
       {
-        "country": "Швеция",
-        "cities": ["Стокгольм", "Гётеборг"]
+        country: "Австрия",
+        cities: ["Вена", "Зальцбург"]
       },
       {
-        "country": "Германия",
-        "cities": ["Берлин", "Кёльн"]
+        country: "Германия",
+        cities: ["Франкфурт-на-Майне", "Берлин", "Мюнхен", "Бремен", "Дортмунд", "Гамбург"]
       },
       {
-        "country": "Франция",
-        "cities": ["Париж", "Лион"]
+        country: "Дания",
+        cities: ["Копенгаген"]
+      },
+      {
+        country: "Испания",
+        cities: ["Сарагоса", "Альмерия", "Хихон"]
+      },
+      {
+        country: "Италия",
+        cities: ["Рим", "Турин"]
+      },
+      {
+        country: "Румыния",
+        cities: ["Бухарест", "Констанца", "Яссы", "Клуж-Напока", "Галац"]
+      },
+      {
+        country: "Финляндия",
+        cities: ["Хельсинки"]
+      },
+      {
+        country: "Франция",
+        cities: ["Ле-Ман"]
       }
     ]
   },
   {
-    "name": "Mercedes-Benz",
-    "locations": [
+    name: "MAN",
+    locations: [
       {
-        "country": "Германия",
-        "cities": ["Берлин", "Гамбург", "Мюнхен", "Кёльн"]
+        country: "Албания",
+        cities: ["Тирана"]
       },
       {
-        "country": "Великобритания",
-        "cities": ["Лондон", "Бирмингем"]
+        country: "Германия",
+        cities: ["Берлин", "Мюнхен", "Дортмунд"]
       },
       {
-        "country": "Франция",
-        "cities": ["Париж", "Марсель"]
+        country: "Греция",
+        cities: ["Янина", "Салоники", "Ламия", "Каламата"]
+      },
+      {
+        country: "Испания",
+        cities: ["Мадрид", "Кордоба"]
+      },
+      {
+        country: "Латвия",
+        cities: ["Рига"]
+      },
+      {
+        country: "Португалия",
+        cities: ["Порту"]
+      },
+      {
+        country: "Румыния",
+        cities: ["Клуж-Напока"]
+      },
+      {
+        country: "Франция",
+        cities: ["Марсель", "Аяччо", "Париж", "Лион"]
+      },
+      {
+        country: "Босния и Герцеговина",
+        cities: ["Тузла"]
+      },
+      {
+        country: "Великобритания",
+        cities: ["Бирмингем", "Эдинбург", "Манчестер"]
       }
     ]
   },
   {
-    "name": "MAN",
-    "locations": [
+    name: "Mercedes-Benz",
+    locations: [
       {
-        "country": "Германия",
-        "cities": ["Берлин", "Мюнхен", "Дортмунд"]
+        country: "Германия",
+        cities: ["Штутгарт", "Дуйсбург", "Росток", "Ганновер"]
       },
       {
-        "country": "Австрия",
-        "cities": ["Вена", "Зальцбург"]
+        country: "Испания",
+        cities: ["Бадахос", "Вальядолид", "Барселона", "Малага"]
       },
       {
-        "country": "Чехия",
-        "cities": ["Прага"]
+        country: "Италия",
+        cities: ["Кальяри", "Болонья", "Неаполь"]
+      },
+      {
+        country: "Польша",
+        cities: ["Варшава", "Краков", "Щецин"]
+      },
+      {
+        country: "Турция",
+        cities: ["Стамбул"]
+      },
+      {
+        country: "Черногория",
+        cities: ["Подгорица"]
+      },
+      {
+        country: "Швейцария",
+        cities: ["Женева", "Цюрих"]
+      },
+      {
+        country: "Великобритания",
+        cities: ["Ньюкасл-апон-Тайн", "Плимут"]
       }
     ]
   },
   {
-    "name": "DAF",
-    "locations": [
+    name: "Renault Trucks",
+    locations: [
       {
-        "country": "Нидерланды",
-        "cities": ["Амстердам", "Роттердам"]
+        country: "Болгария",
+        cities: ["София"]
       },
       {
-        "country": "Великобритания",
-        "cities": ["Лондон", "Шеффилд"]
+        country: "Венгрия",
+        cities: ["Будапешт", "Сегед"]
       },
       {
-        "country": "Германия",
-        "cities": ["Гамбург", "Кёльн"]
+        country: "Испания",
+        cities: ["Барселона"]
+      },
+      {
+        country: "Франция",
+        cities: ["Лион", "Париж", "Тулуза", "Бурж"]
+      },
+      {
+        country: "Чехия",
+        cities: ["Прага"]
+      },
+      {
+        country: "Великобритания",
+        cities: ["Филикстоу"]
+      }
+    ]
+  },
+  {
+    name: "Scania",
+    locations: [
+      {
+        country: "Великобритания",
+        cities: ["Манчестер", "Бирмингем", "Эдинбург"]
+      },
+      {
+        country: "Германия",
+        cities: ["Ганновер", "Нюрнберг", "Дрезден"]
+      },
+      {
+        country: "Италия",
+        cities: ["Милан", "Флоренция", "Верона"]
+      },
+      {
+        country: "Португалия",
+        cities: ["Лиссабон"]
+      },
+      {
+        country: "Румыния",
+        cities: ["Питешти"]
+      },
+      {
+        country: "Хорватия",
+        cities: ["Загреб", "Риека", "Сплит"]
+      },
+      {
+        country: "Швеция",
+        cities: ["Стокгольм", "Гётеборг", "Линчёпинг"]
+      },
+      {
+        country: "Эстония",
+        cities: ["Таллин"]
+      },
+      {
+        country: "Босния и Герцеговина",
+        cities: ["Баня-Лука"]
+      }
+    ]
+  },
+  {
+    name: "Volvo",
+    locations: [
+      {
+        country: "Болгария",
+        cities: ["Пловдив"]
+      },
+      {
+        country: "Великобритания",
+        cities: ["Лондон", "Гримсби", "Абердин"]
+      },
+      {
+        country: "Испания",
+        cities: ["Альбасете"]
+      },
+      {
+        country: "Италия",
+        cities: ["Неаполь"]
+      },
+      {
+        country: "Литва",
+        cities: ["Вильнюс", "Каунас"]
+      },
+      {
+        country: "Люксембург",
+        cities: ["Люксембург"]
+      },
+      {
+        country: "Румыния",
+        cities: ["Брашов"]
+      },
+      {
+        country: "Франция",
+        cities: ["Лимож", "Нант"]
+      },
+      {
+        country: "Финляндия",
+        cities: ["Лахти"]
+      },
+      {
+        country: "Норвегия",
+        cities: ["Осло"]
+      },
+      {
+        country: "Словакия",
+        cities: ["Братислава"]
       }
     ]
   }
-]
-
+];
 export default {
   trucks,
   trailers,
