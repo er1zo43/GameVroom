@@ -43,14 +43,6 @@ export default async function TruckDetailPage({ params }: TruckDetailPageProps) 
         <h1 className="text-4xl font-bold tracking-tight">
           {truck.manufacturer} {truck.model}
         </h1>
-        <div className="flex justify-center gap-2">
-          <Badge variant="secondary" className="text-lg px-3 py-1">
-            {truck.manufacturer}
-          </Badge>
-          <Badge variant="outline" className="text-lg px-3 py-1">
-            {truck.releaseDate.getFullYear()}
-          </Badge>
-        </div>
       </div>
 
       {/* Main Truck Image */}
@@ -89,10 +81,6 @@ export default async function TruckDetailPage({ params }: TruckDetailPageProps) 
               <div>
                 <p className="text-sm text-muted-foreground">Дата выпуска</p>
                 <p className="font-semibold">{truck.releaseDate.toLocaleDateString('ru-RU')}</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Год в игре</p>
-                <p className="font-semibold">{truck.releaseDate.getFullYear()}</p>
               </div>
             </div>
           </CardContent>
@@ -186,7 +174,7 @@ export default async function TruckDetailPage({ params }: TruckDetailPageProps) 
                     <p className="font-semibold text-sm">{transmission.ratioValues}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Финальная передача</p>
+                    <p className="text-sm text-muted-foreground">Передаточное число главной пары</p>
                     <p className="font-semibold">{transmission.finalDriveRatio}</p>
                   </div>
                   <div>
@@ -231,7 +219,7 @@ export default async function TruckDetailPage({ params }: TruckDetailPageProps) 
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Колесная база</p>
-                    <p className="font-semibold">{chassis.wheelbase}</p>
+                    <p className="font-semibold">{chassis.wheelbase} мм</p>
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Стоимость</p>
