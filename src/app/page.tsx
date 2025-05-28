@@ -1,113 +1,163 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import {
+  Truck,
+  Package,
+  MapIcon,
+  Car,
+  Download,
+  ExternalLink,
+  Globe,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
-  const router = useRouter();
+  const navigationItems = [
+    {
+      title: "Грузовики",
+      description: "Изучите все доступные грузовики и их характеристики",
+      href: "/trucks",
+      icon: Truck,
+      image: "/images/nav/trucks.jpg",
+    },
+    {
+      title: "Прицепы",
+      description: "Каталог прицепов с техническими характеристиками",
+      href: "/trailers",
+      icon: Package,
+      image: "/images/nav/trailers.jpg",
+    },
+    {
+      title: "Карта",
+      description: "Все доступные карты, страны и города",
+      href: "/maps",
+      icon: MapIcon,
+      image: "/images/nav/maps.jpg",
+    },
+    {
+      title: "Автосалоны",
+      description: "Расположение автосалонов по всей Европе",
+      href: "/carDealerships",
+      icon: Car,
+      image: "/images/nav/dealerships.jpg",
+    },
+    {
+      title: "DLC",
+      description: "Дополнения и расширения для игры",
+      href: "/dlcs",
+      icon: Download,
+      image: "/images/nav/dlc.jpg",
+    },
+  ];
 
-  const handleATSClick = () => {
-    router.push("/ats");
-  };
-
-  const handleETSClick = () => {
-    router.push("/ets");
-  };
+  const resourceLinks = [
+    {
+      title: "Fandom Euro Truck Simulator 2",
+      url: "https://truck-simulator.fandom.com/ru/wiki/Euro_Truck_Simulator_2",
+      description: "Вики-энциклопедия по игре",
+    },
+    {
+      title: "Официальный сайт SCS Software",
+      url: "https://www.scssoft.com/",
+      description: "Разработчик игры",
+    },
+    {
+      title: "Официальный форум SCS Software",
+      url: "https://forum.scssoft.com/index.php",
+      description: "Сообщество игроков",
+    },
+    {
+      title: "Обсуждение Euro Truck Simulator 2",
+      url: "https://forum.scssoft.com/viewforum.php?f=3",
+      description: "Дополнения и расширения для игры",
+    },
+  ];
 
   return (
-    <div className="w-screen h-screen flex gap-8 p-8 pt-24 relative">
-      {/* Site Logo */}
-      <motion.div
-        className="absolute top-8 left-1/2 transform -translate-x-1/2 z-10"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      >
-        <Image
-          src="/logo.png"
-          alt="Site Logo"
-          width={160}
-          height={160}
-          className="drop-shadow-2xl"
-        />
-      </motion.div>
+    <main className="flex flex-col gap-[32px] row-start-2 items-center">
+      <HeroGeometric />
 
-      {/* ATS Card */}
-      <motion.div
-        className="w-1/2 h-full relative cursor-pointer overflow-hidden rounded-3xl group"
-        onClick={handleATSClick}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        {/* Background Image with Effects */}
-        <div className="absolute inset-0">
-          <Image
-            src="/ats_bg.png"
-            alt="ATS Background"
-            fill
-            className="object-cover grayscale blur-sm group-hover:grayscale-0 group-hover:blur-[2px] transition-all duration-300"
-          />
+      {/* Navigation Cards */}
+      <div className="container mx-auto px-6 space-y-12">
+        <div className="text-center space-y-4">
+          <h2 className="text-3xl font-bold tracking-tight" id="pididi">
+            Разделы Euro Truck Simulator 2
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Изучите все аспекты игры: от грузовиков и прицепов до карт и DLC
+          </p>
         </div>
 
-        {/* Content */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            <Image
-              src="/ats.png"
-              alt="ATS Logo"
-              width={320}
-              height={320}
-              className="drop-shadow-2xl"
-            />
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* ETS Card */}
-      <motion.div
-        className="w-1/2 h-full relative cursor-pointer overflow-hidden rounded-3xl group"
-        onClick={handleETSClick}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        initial={{ x: 50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        {/* Background Image with Effects */}
-        <div className="absolute inset-0">
-          <Image
-            src="/ets_bg.png"
-            alt="ETS Background"
-            fill
-            className="object-cover grayscale blur-sm group-hover:grayscale-0 group-hover:blur-[2px] transition-all duration-300"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {navigationItems.map((item, index) => (
+            <Link key={index} href={item.href}>
+              <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden">
+                <div className="aspect-video relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10" />
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
+                  {/* Placeholder background for image */}
+                  <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center">
+                    <item.icon className="h-16 w-16 text-primary/60" />
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 z-30">
+                    <h3 className="text-white font-semibold text-xl mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-white/80 text-sm">{item.description}</p>
+                  </div>
+                </div>
+              </Card>
+            </Link>
+          ))}
         </div>
 
-        {/* Content */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <Image
-              src="/ets.png"
-              alt="ETS Logo"
-              width={320}
-              height={320}
-              className="drop-shadow-2xl"
-            />
-          </motion.div>
+        {/* Resource Links */}
+        <div className="space-y-8 mb-12">
+          <Separator />
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight flex items-center justify-center gap-2">
+              <Globe className="h-6 w-6" />
+              Полезные ресурсы
+            </h2>
+            <p className="text-muted-foreground">
+              Официальные и сообщественные ресурсы для игроков
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {resourceLinks.map((link, index) => (
+              <Card
+                key={index}
+                className="hover:shadow-md transition-shadow duration-200"
+              >
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="space-y-1">
+                      <h3 className="font-semibold">{link.title}</h3>
+                      <p className="text-sm text-muted-foreground">
+                        {link.description}
+                      </p>
+                    </div>
+                    <Button variant="ghost" size="sm" asChild>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
-      </motion.div>
-    </div>
+
+
+      </div>
+    </main>
   );
 }

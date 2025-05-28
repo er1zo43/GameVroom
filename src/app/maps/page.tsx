@@ -173,9 +173,6 @@ export default function MapsPage() {
                             <Badge variant="secondary" className="text-xs">
                               {country.name}
                             </Badge>
-                            <Badge variant="outline" className="text-xs block w-fit">
-                              {getMapName(map)}
-                            </Badge>
                           </div>
                         </Card>
                       ))}

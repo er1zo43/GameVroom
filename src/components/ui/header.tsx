@@ -5,41 +5,40 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
-import { Truck, Home, Menu, X, Package, MapIcon, Building, Download } from "lucide-react";
+import {
+  Truck,
+  Home,
+  Menu,
+  X,
+  Package,
+  MapIcon,
+  Building,
+  Download,
+  Mail,
+} from "lucide-react";
 import { useState } from "react";
+import { ContactModal } from "@/components/ui/contact-modal";
 
-interface HeaderProps {
-  variant: "ets" | "ats";
-}
-
-export function Header({ variant }: HeaderProps) {
+export function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
-  const isETS = variant === "ets";
-  const baseRoute = isETS ? "/ets" : "/ats";
-  
-  const navigationItems = isETS 
-    ? [
-        { href: "/ets", label: "Главная", icon: Home },
-        { href: "/ets/trucks", label: "Грузовики", icon: Truck },
-        { href: "/ets/trailers", label: "Прицепы", icon: Package },
-        { href: "/ets/maps", label: "Карты", icon: MapIcon },
-        { href: "/ets/carDealerships", label: "Автосалоны", icon: Building },
-        { href: "/ets/dlcs", label: "DLC", icon: Download },
-      ]
-    : [
-        { href: "/ats", label: "Главная", icon: Home },
-        { href: "/ats/trucks", label: "Грузовики", icon: Truck },
-        { href: "/ats/trailers", label: "Прицепы", icon: Package },
-      ];
+  const navigationItems = [
+    { href: "/", label: "Главная", icon: Home },
+    { href: "/trucks", label: "Грузовики", icon: Truck },
+    { href: "/trailers", label: "Прицепы", icon: Package },
+    { href: "/maps", label: "Карта", icon: MapIcon },
+    { href: "/carDealerships", label: "Автосалоны", icon: Building },
+    { href: "/dlcs", label: "DLC", icon: Download },
+  ];
 
-  const accentColor = isETS ? "text-blue-400" : "text-red-400";
+  const accentColor = "text-blue-400"
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href={baseRoute} className="flex items-center">
+        <Link href={"/"} className="flex items-center">
           <Image
             src="/logo.png"
             alt="Logo"
@@ -59,7 +58,7 @@ export function Header({ variant }: HeaderProps) {
                   size="sm"
                   className={cn(
                     "flex items-center gap-2",
-                    isActive && accentColor
+                    isActive && accentColor,
                   )}
                 >
                   <item.icon className="h-4 w-4" />
@@ -71,12 +70,15 @@ export function Header({ variant }: HeaderProps) {
         </nav>
 
         <div className="hidden md:flex items-center space-x-2">
-          <Link href={isETS ? "/ats" : "/ets"}>
-            <Button variant="outline" size="sm" className="flex items-center gap-2">
-              <Truck className="h-4 w-4" />
-              {isETS ? "ATS" : "ETS2"}
-            </Button>
-          </Link>
+          <Button
+            variant="outline"
+            size="sm"
+            className="flex items-center gap-2"
+            onClick={() => setIsContactModalOpen(true)}
+          >
+            <Mail className="h-4 w-4" />
+            Контакты
+          </Button>
         </div>
 
         <Button
@@ -109,7 +111,7 @@ export function Header({ variant }: HeaderProps) {
                     size="sm"
                     className={cn(
                       "w-full justify-start gap-2",
-                      isActive && accentColor
+                      isActive && accentColor,
                     )}
                   >
                     <item.icon className="h-4 w-4" />
@@ -119,19 +121,27 @@ export function Header({ variant }: HeaderProps) {
               );
             })}
             <div className="pt-2 border-t border-border/40">
-              <Link
-                href={isETS ? "/ats" : "/ets"}
-                onClick={() => setIsMobileMenuOpen(false)}
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full justify-start gap-2"
+                onClick={() => {
+                  setIsContactModalOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
               >
-                <Button variant="outline" size="sm" className="w-full justify-start gap-2">
-                  <Truck className="h-4 w-4" />
-                  Перейти к {isETS ? "ATS" : "ETS2"}
-                </Button>
-              </Link>
+                <Mail className="h-4 w-4" />
+                Контакты
+              </Button>
             </div>
           </nav>
         </div>
       )}
+      
+      <ContactModal 
+        open={isContactModalOpen} 
+        onOpenChange={setIsContactModalOpen} 
+      />
     </header>
   );
 }
