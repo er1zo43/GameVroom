@@ -1,29 +1,31 @@
-"use client"
+"use client";
 
-import { notFound } from "next/navigation"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { ArrowLeft, Truck, Package, Ruler, Weight, Info } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import etsData from "@/lib/mock/ets"
+import { notFound } from "next/navigation";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft, Truck, Package, Ruler, Weight, Info } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import etsData from "@/lib/mock/ets";
 
 interface TrailerDetailPageProps {
-  params: {
-    name: string
-  }
+  params: Promise<{
+    name: string;
+  }>;
 }
 
-export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
-  const decodedName = decodeURIComponent(params.name)
-  const trailer = etsData.trailers.find(t => 
-    `${t.manufacturer}-${t.model}`.toLowerCase().replace(/\s+/g, '-') === decodedName.toLowerCase()
-  )
+export default async function TrailerDetailPage({ params }: TrailerDetailPageProps) {
+  const { name } = await params;
+  const decodedName = decodeURIComponent(name);
+  const trailer = etsData.trailers.find(
+    (t) =>
+      `${t.manufacturer}-${t.model}`.toLowerCase().replace(/\s+/g, "-") ===
+      decodedName.toLowerCase(),
+  );
 
   if (!trailer) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -109,7 +111,9 @@ export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-sm text-muted-foreground">Снаряженная масса</p>
+                <p className="text-sm text-muted-foreground">
+                  Снаряженная масса
+                </p>
                 <p className="font-semibold">{trailer.curbWeight} кг</p>
               </div>
               <div>
@@ -125,7 +129,9 @@ export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
                 <p className="font-semibold">{trailer.numberOfLiftAxles}</p>
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Управляемых осей</p>
+                <p className="text-sm text-muted-foreground">
+                  Управляемых осей
+                </p>
                 <p className="font-semibold">{trailer.numberOfSteeredAxles}</p>
               </div>
             </div>
@@ -145,31 +151,39 @@ export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
               <CardTitle className="text-lg">Длина</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-primary">{trailer.bodyInternalDimensions.length}</p>
+              <p className="text-3xl font-bold text-primary">
+                {trailer.bodyInternalDimensions.length}
+              </p>
               <p className="text-sm text-muted-foreground">миллиметров</p>
             </CardContent>
           </Card>
-          
+
           <Card className="text-center">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg">Ширина</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-primary">{trailer.bodyInternalDimensions.width}</p>
+              <p className="text-3xl font-bold text-primary">
+                {trailer.bodyInternalDimensions.width}
+              </p>
               <p className="text-sm text-muted-foreground">миллиметров</p>
             </CardContent>
           </Card>
-          
+
           <Card className="text-center">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg">Высота</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold text-primary">
-                {trailer.bodyInternalDimensions.height > 0 ? trailer.bodyInternalDimensions.height : "Н/Д"}
+                {trailer.bodyInternalDimensions.height > 0
+                  ? trailer.bodyInternalDimensions.height
+                  : "Н/Д"}
               </p>
               <p className="text-sm text-muted-foreground">
-                {trailer.bodyInternalDimensions.height > 0 ? "миллиметров" : "не применимо"}
+                {trailer.bodyInternalDimensions.height > 0
+                  ? "миллиметров"
+                  : "не применимо"}
               </p>
             </CardContent>
           </Card>
@@ -186,7 +200,10 @@ export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
           <CardContent className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {trailer.cargoTypesTransported.map((cargoType, index) => (
-                <div key={index} className="flex items-center gap-3 p-3 rounded-lg border">
+                <div
+                  key={index}
+                  className="flex items-center gap-3 p-3 rounded-lg border"
+                >
                   <Package className="h-5 w-5 text-primary" />
                   <span className="font-medium">{cargoType}</span>
                 </div>
@@ -210,38 +227,49 @@ export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
               <h4 className="font-semibold text-lg">Характеристики шасси</h4>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Общее количество осей:</span>
+                  <span className="text-muted-foreground">
+                    Общее количество осей:
+                  </span>
                   <span className="font-medium">{trailer.numberOfAxles}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Подъемные оси:</span>
-                  <span className="font-medium">{trailer.numberOfLiftAxles}</span>
+                  <span className="font-medium">
+                    {trailer.numberOfLiftAxles}
+                  </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Управляемые оси:</span>
-                  <span className="font-medium">{trailer.numberOfSteeredAxles}</span>
+                  <span className="text-muted-foreground">
+                    Управляемые оси:
+                  </span>
+                  <span className="font-medium">
+                    {trailer.numberOfSteeredAxles}
+                  </span>
                 </div>
               </div>
             </div>
-            
+
             <div className="space-y-4">
               <h4 className="font-semibold text-lg">Размеры и вес</h4>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Снаряженная масса:</span>
+                  <span className="text-muted-foreground">
+                    Снаряженная масса:
+                  </span>
                   <span className="font-medium">{trailer.curbWeight} кг</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Общая длина:</span>
-                  <span className="font-medium">{trailer.overallLength} мм</span>
+                  <span className="font-medium">
+                    {trailer.overallLength} мм
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Объем кузова:</span>
                   <span className="font-medium">
-                    {trailer.bodyInternalDimensions.height > 0 
+                    {trailer.bodyInternalDimensions.height > 0
                       ? `${Math.round((trailer.bodyInternalDimensions.length * trailer.bodyInternalDimensions.width * trailer.bodyInternalDimensions.height) / 1000000)} м³`
-                      : "Н/Д"
-                    }
+                      : "Н/Д"}
                   </span>
                 </div>
               </div>
@@ -260,5 +288,5 @@ export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
         </Link>
       </div>
     </div>
-  )
+  );
 }
