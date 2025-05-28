@@ -30,7 +30,7 @@ export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
     <div className="container mx-auto p-6 space-y-8">
       {/* Header with Back Button */}
       <div className="flex items-center gap-4">
-        <Link href="/ets/trailers">
+        <Link href="/trailers">
           <Button variant="outline" size="sm">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Назад к прицепам
@@ -252,7 +252,7 @@ export default function TrailerDetailPage({ params }: TrailerDetailPageProps) {
 
       {/* Back Button */}
       <div className="text-center pt-8">
-        <Link href="/ets/trailers">
+        <Link href="/trailers">
           <Button variant="outline" size="lg">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Вернуться к списку прицепов

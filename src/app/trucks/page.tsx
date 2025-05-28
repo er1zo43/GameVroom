@@ -43,7 +43,7 @@ export default function TrucksPage() {
     <div className="container mx-auto p-6 space-y-8">
       {/* Back Button */}
       <div className="flex items-center gap-4">
-        <Link href="/ets">
+        <Link href="/">
           <Button variant="outline" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             Назад на главную
@@ -102,7 +102,7 @@ export default function TrucksPage() {
               {trucks.map((truck, index) => {
                 const truckSlug = `${truck.manufacturer}-${truck.model}`.toLowerCase().replace(/\s+/g, '-')
                 return (
-                  <Link key={`${truck.manufacturer}-${truck.model}-${index}`} href={`/ets/trucks/${truckSlug}`}>
+                  <Link key={`${truck.manufacturer}-${truck.model}-${index}`} href={`/trucks/${truckSlug}`}>
                     <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-200 group">
                       <CardContent className="p-0">
                         <div className="aspect-video relative overflow-hidden rounded-t-lg">

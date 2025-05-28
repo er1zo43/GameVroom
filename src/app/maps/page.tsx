@@ -45,10 +45,6 @@ export default function MapsPage() {
     })
   }, [searchTerm, selectedMap])
 
-  const getTypeDisplayName = (type: string) => {
-    return type === "BASE_GAME" ? "Базовая игра" : "Дополнение"
-  }
-
   const getTypeVariant = (type: string) => {
     return type === "BASE_GAME" ? "default" : "secondary"
   }
@@ -57,7 +53,7 @@ export default function MapsPage() {
     <div className="container mx-auto p-6 space-y-8">
       {/* Back Button */}
       <div className="flex items-center gap-4">
-        <Link href="/ets">
+        <Link href="/">
           <Button variant="outline" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             Назад на главную
