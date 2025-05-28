@@ -241,6 +241,7 @@ const maps: Map[] = [
   },
   {
     type: "DLC",
+    name: "Vive la France",
     countries: [
       {
         name: "France",

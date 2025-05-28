@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator"
 import { Search, Filter, Car, MapPin, Building, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import etsData from "@/lib/mock/ets"
+import { declension } from "@/lib/utils/declension"
 
 export default function CarDealershipsPage() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -126,7 +127,7 @@ export default function CarDealershipsPage() {
                     
                     <div className="pt-2 border-t">
                       <Badge variant="outline" className="text-xs">
-                        {dealership.name} - {location.cities.length} {location.cities.length === 1 ? 'салон' : 'салонов'}
+                        {dealership.name} - {location.cities.length} {declension(location.cities.length, ['салон', 'салона', 'салонов'])}
                       </Badge>
                     </div>
                   </CardContent>

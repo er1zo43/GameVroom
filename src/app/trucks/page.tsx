@@ -103,7 +103,7 @@ export default function TrucksPage() {
                 const truckSlug = `${truck.manufacturer}-${truck.model}`.toLowerCase().replace(/\s+/g, '-')
                 return (
                   <Link key={`${truck.manufacturer}-${truck.model}-${index}`} href={`/trucks/${truckSlug}`}>
-                    <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-200 group">
+                    <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-200 group py-0">
                       <CardContent className="p-0">
                         <div className="aspect-video relative overflow-hidden rounded-t-lg">
                           <Image
@@ -115,9 +115,6 @@ export default function TrucksPage() {
                         </div>
                         <div className="p-4 text-center">
                           <h3 className="font-semibold text-lg">{truck.model}</h3>
-                          <Badge variant="secondary" className="mt-2">
-                            {truck.manufacturer}
-                          </Badge>
                         </div>
                       </CardContent>
                     </Card>

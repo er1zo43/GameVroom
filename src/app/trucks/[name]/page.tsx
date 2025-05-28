@@ -4,7 +4,6 @@ import { notFound } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
 import { ArrowLeft, Cog, Settings, Wrench, Truck } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -44,18 +43,10 @@ export default async function TruckDetailPage({ params }: TruckDetailPageProps) 
         <h1 className="text-4xl font-bold tracking-tight">
           {truck.manufacturer} {truck.model}
         </h1>
-        <div className="flex justify-center gap-2">
-          <Badge variant="secondary" className="text-lg px-3 py-1">
-            {truck.manufacturer}
-          </Badge>
-          <Badge variant="outline" className="text-lg px-3 py-1">
-            {truck.releaseDate.getFullYear()}
-          </Badge>
-        </div>
       </div>
 
       {/* Main Truck Image */}
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden py-0">
         <div className="aspect-video relative">
           <Image
             src={truck.imagePath}
@@ -90,10 +81,6 @@ export default async function TruckDetailPage({ params }: TruckDetailPageProps) 
               <div>
                 <p className="text-sm text-muted-foreground">Дата выпуска</p>
                 <p className="font-semibold">{truck.releaseDate.toLocaleDateString('ru-RU')}</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Год в игре</p>
-                <p className="font-semibold">{truck.releaseDate.getFullYear()}</p>
               </div>
             </div>
           </CardContent>
