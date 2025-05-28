@@ -146,7 +146,7 @@ export default function MapsPage() {
                     
                     <Separator />
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                       {/* Capital first */}
                       <Card className="p-4 border-2 border-primary/20 bg-primary/5">
                         <div className="flex items-center gap-2 mb-2">
@@ -154,9 +154,6 @@ export default function MapsPage() {
                           <span className="font-medium text-primary">Столица</span>
                         </div>
                         <h4 className="font-semibold text-lg">{country.capital.name}</h4>
-                        <Badge variant="outline" className="mt-2 text-xs">
-                          {getTypeDisplayName(map.type)}
-                        </Badge>
                       </Card>
                       
                       {/* Other cities */}
@@ -169,11 +166,6 @@ export default function MapsPage() {
                             <span className="text-sm text-muted-foreground">Город</span>
                           </div>
                           <h4 className="font-semibold">{city.name}</h4>
-                          <div className="mt-2 space-y-1">
-                            <Badge variant="secondary" className="text-xs">
-                              {country.name}
-                            </Badge>
-                          </div>
                         </Card>
                       ))}
                     </div>
