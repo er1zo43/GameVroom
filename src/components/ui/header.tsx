@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
-import { Truck, Car, Home, Menu, X, Package, MapIcon, Building, Download } from "lucide-react";
+import { Truck, Home, Menu, X, Package, MapIcon, Building, Download } from "lucide-react";
 import { useState } from "react";
 
 interface HeaderProps {
@@ -34,16 +34,11 @@ export function Header({ variant }: HeaderProps) {
         { href: "/ats/trailers", label: "Прицепы", icon: Package },
       ];
 
-  const brandColors = isETS 
-    ? "from-blue-600 to-indigo-600"
-    : "from-red-600 to-orange-600";
-
   const accentColor = isETS ? "text-blue-400" : "text-red-400";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
         <Link href={baseRoute} className="flex items-center">
           <Image
             src="/logo.png"
@@ -54,7 +49,6 @@ export function Header({ variant }: HeaderProps) {
           />
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-1">
           {navigationItems.map((item) => {
             const isActive = pathname === item.href;
@@ -66,7 +60,7 @@ export function Header({ variant }: HeaderProps) {
                   className={cn(
                     "flex items-center gap-2",
                     isActive && accentColor
-                    8             )}
+                  )}
                 >
                   <item.icon className="h-4 w-4" />
                   {item.label}
@@ -76,7 +70,6 @@ export function Header({ variant }: HeaderProps) {
           })}
         </nav>
 
-        {/* Switch Game Button */}
         <div className="hidden md:flex items-center space-x-2">
           <Link href={isETS ? "/ats" : "/ets"}>
             <Button variant="outline" size="sm" className="flex items-center gap-2">
@@ -86,7 +79,6 @@ export function Header({ variant }: HeaderProps) {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
         <Button
           variant="ghost"
           size="sm"
@@ -101,7 +93,6 @@ export function Header({ variant }: HeaderProps) {
         </Button>
       </div>
 
-      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur">
           <nav className="container mx-auto px-4 py-4 space-y-2">
