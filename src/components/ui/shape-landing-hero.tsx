@@ -196,16 +196,11 @@ function HeroGeometric({
 
           <Button
             onClick={() => {
-              const targetElement = document.getElementById("pididi");
+              const targetElement = document.getElementById("portal");
               if (targetElement) {
                 targetElement.scrollIntoView({
                   behavior: "smooth",
                   block: "start",
-                });
-              } else {
-                window.scrollBy({
-                  top: window.innerHeight,
-                  behavior: "smooth",
                 });
               }
             }}

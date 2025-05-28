@@ -81,15 +81,21 @@ export default function Home() {
       <HeroGeometric />
 
       {/* Navigation Cards */}
-      <div className="container mx-auto px-6 space-y-12">
+      <div className="relative container mx-auto px-6 space-y-12">
+        <div className="absolute top-[-200px]" id="portal"/>
         <div className="text-center space-y-4">
-          <h2 className="text-3xl font-bold tracking-tight" id="pididi">
+          <h2 className="text-3xl font-bold tracking-tight">
             Euro Truck Simulator 2
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Euro Truck Simulator 2 — игра в жанре симулятора дальнобойщика с элементами экономической стратегии. Разрабатывается и издается чешской компанией SCS Software. 
-            Официальный релиз состоялся 18 октября 2012 года, в Steam игра вышла в январе 2013. Является продолжением Euro Truck Simulator, который увидел свет в 2008 году.
-            Игра была создана на собственном движке SCS Software «Prism3D», который был серьезно доработан и оптимизирован. Совершенствование движка ведется параллельно с разработкой новых дополнений.
+            Euro Truck Simulator 2 — игра в жанре симулятора дальнобойщика с
+            элементами экономической стратегии. Разрабатывается и издается
+            чешской компанией SCS Software. Официальный релиз состоялся 18
+            октября 2012 года, в Steam игра вышла в январе 2013. Является
+            продолжением Euro Truck Simulator, который увидел свет в 2008 году.
+            Игра была создана на собственном движке SCS Software «Prism3D»,
+            который был серьезно доработан и оптимизирован. Совершенствование
+            движка ведется параллельно с разработкой новых дополнений.
           </p>
         </div>
 
@@ -160,8 +166,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-
       </div>
     </main>
   );

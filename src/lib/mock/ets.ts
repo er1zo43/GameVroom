@@ -7,7 +7,7 @@ import { Trailer } from "../model/trailer";
 const trucks: Truck[] = [
   {
     manufacturer: "Scania",
-    model: "S",
+    model: "S Model",
     imagePath: "/images/trucks/scania_s.png",
     releaseDate: new Date("01.12.2017"),
     engines: [
@@ -49,7 +49,7 @@ const trucks: Truck[] = [
     manufacturer: "DAF",
     model: "NGD",
     imagePath: "/images/trucks/daf_ngd.png",
-    releaseDate: new Date("10.06.2021"),
+    releaseDate: new Date("2021-06-10"),
     engines: [
       { name: "МХ-11 270", power: "367 л. с. (270кВт)", torque: "1 800/1 950 Нм на 900-1 400 об/м", cost: 12000, unlockLevel: 2 },
       { name: "МХ-11 300", power: "408 л. с. (300кВт)", torque: "2 000/2 150 Нм на 900-1 400 об/м", cost: 12600, unlockLevel: 2 },
@@ -83,8 +83,8 @@ const trucks: Truck[] = [
   {
     manufacturer: "DAF",
     model: "XF Euro 6",
-    imagePath: "/images/trucks/daf_xf.png",
-    releaseDate: new Date("11.11.2014"),
+    imagePath: "/images/trucks/daf_xf_euro_6.png",
+    releaseDate: new Date("2014-11-11"),
     engines: [
       { name: "МХ-11 270 Euro 6, 2017", power: "370 л. с. (270кВт)", torque: "1 800/1 900 Нм на 900-1 400 об/м", cost: 12000, unlockLevel: 0 },
       { name: "МХ-13 303 Euro 6", power: "410 л. с. (303кВт)", torque: "2 000 Нм на 1 000-1 425 об/м", cost: 12600, unlockLevel: 2 },
@@ -124,32 +124,10 @@ const trucks: Truck[] = [
     ]
   },
   {
-    manufacturer: "Volvo",
-    model: "FH16",
-    imagePath: "/images/trucks/volvo_fh16.jpg",
-    releaseDate: new Date("2016-01-01"),
-    engines: [
-      { name: "D13K420", power: "420 hp", torque: "2100 Nm", cost: 48000, unlockLevel: 10 },
-      { name: "D13K460", power: "460 hp", torque: "2300 Nm", cost: 55000, unlockLevel: 15 }
-    ],
-    transmissions: [
-      { name: "I-Shift AT2412D", gears: 12, ratioValues: "15.04-1.00", finalDriveRatio: 2.85, cost: 9000, unlockLevel: 6 },
-      { name: "I-Shift AT2612D", gears: 12, ratioValues: "14.94-1.00", finalDriveRatio: 3.08, cost: 13000, unlockLevel: 12 }
-    ],
-    chassis: [
-      { wheelFormula: "4x2", totalNumberOfAxles: 2, numberOfDrivenAxles: 1, wheelbase: "3800mm", cost: 16000, unlockLevel: 1 },
-      { wheelFormula: "6x2", totalNumberOfAxles: 3, numberOfDrivenAxles: 1, wheelbase: "4200mm", cost: 22000, unlockLevel: 6 }
-    ],
-    cabins: [
-      { name: "Day Cab", cost: 9000, unlockLevel: 1 },
-      { name: "Sleeper Cab", cost: 16000, unlockLevel: 6 }
-    ]
-  },
-  {
     manufacturer: "MAN",
     model: "TG3 TGX",
-    imagePath: "/images/trucks/man_tgx_2020.png",
-    releaseDate: new Date("16.05.2023"),
+    imagePath: "/images/trucks/man_tg3_tgx.png",
+    releaseDate: new Date("2023-05-16"),
     engines: [
       { name: "D1556 LF09 243 Euro 6d", power: "330 л. с. (243кВт)", torque: "1 600 Нм на 1 000 об/м", cost: 8160, unlockLevel: 0 },
       { name: "D1556 LF08 265 Euro 6d", power: "360 л. с. (265кВт)", torque: "1 700 Нм на 1 000 об/м", cost: 8400, unlockLevel: 0 },
@@ -186,10 +164,10 @@ const trucks: Truck[] = [
     ]
   },
   {
-    manufacturer: "Renault",
-    model: "T",
+    manufacturer: "Renault Trucks",
+    model: "T Model",
     imagePath: "/images/trucks/renault_t.png",
-    releaseDate: new Date("26.09.2019"),
+    releaseDate: new Date("2019-09-26"),
     engines: [
       { name: "DTI 11 380 Euro 6", power: "380 л. с. (279кВт)", torque: "1 800 Нм на 950-1 450 об/м", cost: 10200, unlockLevel: 0 },
       { name: "DTI 11 430 Euro 6", power: "430 л. с. (316кВт)", torque: "2 050 Нм на 1 000-1 400 об/м", cost: 14880, unlockLevel: 10 },
@@ -220,28 +198,6 @@ const trucks: Truck[] = [
     cabins: [
       { name: "Спальная", cost: 21960, unlockLevel: 0 },
       { name: "Высокая спальная", cost: 42480, unlockLevel: 8 }
-    ]
-  },
-  {
-    manufacturer: "Mercedes-Benz",
-    model: "Actros",
-    imagePath: "/images/trucks/mercedes_actros.jpg",
-    releaseDate: new Date("2016-01-01"),
-    engines: [
-      { name: "OM471", power: "408 hp", torque: "2000 Nm", cost: 46000, unlockLevel: 9 },
-      { name: "OM471", power: "449 hp", torque: "2200 Nm", cost: 53000, unlockLevel: 14 }
-    ],
-    transmissions: [
-      { name: "PowerShift 3", gears: 12, ratioValues: "16.68-1.00", finalDriveRatio: 2.73, cost: 8800, unlockLevel: 7 },
-      { name: "PowerShift 3", gears: 16, ratioValues: "15.86-0.69", finalDriveRatio: 2.92, cost: 14000, unlockLevel: 13 }
-    ],
-    chassis: [
-      { wheelFormula: "4x2", totalNumberOfAxles: 2, numberOfDrivenAxles: 1, wheelbase: "3600mm", cost: 15500, unlockLevel: 1 },
-      { wheelFormula: "6x4", totalNumberOfAxles: 3, numberOfDrivenAxles: 2, wheelbase: "3900mm", cost: 26000, unlockLevel: 9 }
-    ],
-    cabins: [
-      { name: "ClassicSpace", cost: 8500, unlockLevel: 1 },
-      { name: "BigSpace", cost: 17000, unlockLevel: 7 }
     ]
   }
 ]
@@ -378,6 +334,7 @@ const trailers: Trailer[] = [
 const maps: Map[] = [
   {
     type: "BASE_GAME",
+    name: "Базовая игра",
     countries: [
     {
       "name": "Австрия",
@@ -529,44 +486,45 @@ const maps: Map[] = [
   imagePath: "/images/map/map_full.jpg"
   },
 {
-  "type": "DLC",
-  "countries": [
+  type: "DLC",
+  name: "Vive la France",
+  countries: [
     {
-      "name": "Франция",
-      "capital": { "name": "Париж" },
-      "cities": [
-        { "name": "Аяччо" },
-        { "name": "Байонна" },
-        { "name": "Бастия" },
-        { "name": "Бонифачо" },
-        { "name": "Бордо" },
-        { "name": "Брест" },
-        { "name": "Бурж" },
-        { "name": "Гавр" },
-        { "name": "Гольфеш" },
-        { "name": "Кальви" },
-        { "name": "Клермон-Ферран" },
-        { "name": "Лак" },
-        { "name": "Ла-Рошель" },
-        { "name": "Ле-Ман" },
-        { "name": "Л’Иль-Рус" },
-        { "name": "Лимож" },
-        { "name": "Марсель" },
-        { "name": "Монпелье" },
-        { "name": "Нант" },
-        { "name": "Ницца" },
-        { "name": "Палюэль" },
-        { "name": "Порто-Веккьо" },
-        { "name": "Рен" },
-        { "name": "Роскоф" },
-        { "name": "Сент-Альбан-дю-Рон" },
-        { "name": "Сен-Лоран" },
-        { "name": "Сиво" },
-        { "name": "Тулуза" }
+      name: "Франция",
+      capital: { name: "Париж" },
+      cities: [
+        { name: "Аяччо" },
+        { name: "Байонна" },
+        { name: "Бастия" },
+        { name: "Бонифачо" },
+        { name: "Бордо" },
+        { name: "Брест" },
+        { name: "Бурж" },
+        { name: "Гавр" },
+        { name: "Гольфеш" },
+        { name: "Кальви" },
+        { name: "Клермон-Ферран" },
+        { name: "Лак" },
+        { name: "Ла-Рошель" },
+        { name: "Ле-Ман" },
+        { name: "Л'Иль-Рус" },
+        { name: "Лимож" },
+        { name: "Марсель" },
+        { name: "Монпелье" },
+        { name: "Нант" },
+        { name: "Ницца" },
+        { name: "Палюэль" },
+        { name: "Порто-Веккьо" },
+        { name: "Рен" },
+        { name: "Роскоф" },
+        { name: "Сент-Альбан-дю-Рон" },
+        { name: "Сен-Лоран" },
+        { name: "Сиво" },
+        { name: "Тулуза" }
       ]
     }
   ],
-  "imagePath": "/images/map/map_vive_la_france.jpg"
+  imagePath: "/images/map/map_vive_la_france.jpg"
   },
   {
     type: "DLC",
@@ -1139,6 +1097,7 @@ const dlcs: DLC[] = [
     releaseDate: new Date("2024-12-04")
   }
 ]
+
 const carDealerships: CarDealership[] = [
   {
     name: "DAF",
@@ -1408,6 +1367,7 @@ const carDealerships: CarDealership[] = [
     ]
   }
 ];
+
 export default {
   trucks,
   trailers,

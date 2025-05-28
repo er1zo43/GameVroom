@@ -115,14 +115,13 @@ export default function MapsPage() {
             <CardContent className="space-y-6">
               {/* Map Image */}
               {map.imagePath && (
-                <div className="aspect-video relative rounded-lg overflow-hidden">
                   <Image
                     src={map.imagePath}
                     alt={`Карта ${getMapName(map)}`}
-                    fill
-                    className="object-cover"
+                    className="w-full h-auto relative rounded-lg"
+                    width={1920}
+                    height={1080}
                   />
-                </div>
               )}
 
               {/* Countries and Cities */}
