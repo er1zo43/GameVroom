@@ -196,10 +196,18 @@ function HeroGeometric({
 
           <Button
             onClick={() => {
-              window.scrollTo({
-                top: document.getElementById("pididi")?.offsetTop || 0,
-                behavior: "smooth",
-              });
+              const targetElement = document.getElementById("pididi");
+              if (targetElement) {
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              } else {
+                window.scrollBy({
+                  top: window.innerHeight,
+                  behavior: "smooth",
+                });
+              }
             }}
           >
             {button}

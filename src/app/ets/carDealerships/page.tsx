@@ -7,7 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
-import { Search, Filter, Car, MapPin, Building } from "lucide-react"
+import { Search, Filter, Car, MapPin, Building, ArrowLeft } from "lucide-react"
+import Link from "next/link"
 import etsData from "@/lib/mock/ets"
 
 export default function CarDealershipsPage() {
@@ -38,6 +39,16 @@ export default function CarDealershipsPage() {
 
   return (
     <div className="container mx-auto p-6 space-y-8">
+      {/* Back Button */}
+      <div className="flex items-center gap-4">
+        <Link href="/ets">
+          <Button variant="outline" className="flex items-center gap-2">
+            <ArrowLeft className="h-4 w-4" />
+            Назад на главную
+          </Button>
+        </Link>
+      </div>
+
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">Автосалоны ETS2</h1>

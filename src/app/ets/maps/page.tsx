@@ -7,32 +7,43 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
-import { Search, Filter, MapIcon, Globe, Building } from "lucide-react"
+import { Search, Filter, MapIcon, Globe, Building, ArrowLeft } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import etsData from "@/lib/mock/ets"
 
 export default function MapsPage() {
   const [searchTerm, setSearchTerm] = useState("")
-  const [selectedType, setSelectedType] = useState("all")
+  const [selectedMap, setSelectedMap] = useState("all")
+
+  const getMapName = (map: typeof etsData.maps[0]) => {
+    if (map.type === "BASE_GAME") return "Базовая игра"
+    return map.countries[0].name
+  }
+
+  const mapNames = useMemo(() => {
+    return [...new Set(etsData.maps.map(getMapName))].sort()
+  }, [])
 
   const filteredMaps = useMemo(() => {
     return etsData.maps.filter(map => {
-      const matchesType = selectedType === "all" || map.type === selectedType
+      const mapName = getMapName(map)
+      const matchesMap = selectedMap === "all" || mapName === selectedMap
       
-      if (!searchTerm) return matchesType
+      if (!searchTerm) return matchesMap
 
       const searchLower = searchTerm.toLowerCase()
       const matchesSearch = 
-        map.type.toLowerCase().includes(searchLower) ||
+        mapName.toLowerCase().includes(searchLower) ||
         map.countries.some(country => 
           country.name.toLowerCase().includes(searchLower) ||
           country.capital.name.toLowerCase().includes(searchLower) ||
           country.cities.some(city => city.name.toLowerCase().includes(searchLower))
         )
       
-      return matchesType && matchesSearch
+      return matchesMap && matchesSearch
     })
-  }, [searchTerm, selectedType])
+  }, [searchTerm, selectedMap])
 
   const getTypeDisplayName = (type: string) => {
     return type === "BASE_GAME" ? "Базовая игра" : "Дополнение"
@@ -44,9 +55,19 @@ export default function MapsPage() {
 
   return (
     <div className="container mx-auto p-6 space-y-8">
+      {/* Back Button */}
+      <div className="flex items-center gap-4">
+        <Link href="/ets">
+          <Button variant="outline" className="flex items-center gap-2">
+            <ArrowLeft className="h-4 w-4" />
+            Назад на главную
+          </Button>
+        </Link>
+      </div>
+
       {/* Header */}
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Карты ETS2</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Карта ETS2</h1>
         <p className="text-xl text-muted-foreground">
           Изучите все доступные карты и локации в Euro Truck Simulator 2
         </p>
@@ -66,14 +87,17 @@ export default function MapsPage() {
         
         <div className="flex items-center gap-2">
           <Filter className="h-4 w-4 text-muted-foreground" />
-          <Select value={selectedType} onValueChange={setSelectedType}>
+          <Select value={selectedMap} onValueChange={setSelectedMap}>
             <SelectTrigger className="w-48">
-              <SelectValue placeholder="Фильтр по типу" />
+              <SelectValue placeholder="Фильтр по карте" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">Все типы</SelectItem>
-              <SelectItem value="BASE_GAME">Базовая игра</SelectItem>
-              <SelectItem value="DLC">Дополнения</SelectItem>
+              <SelectItem value="all">Все карты</SelectItem>
+              {mapNames.map(mapName => (
+                <SelectItem key={mapName} value={mapName}>
+                  {mapName}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
@@ -87,10 +111,10 @@ export default function MapsPage() {
               <div className="flex items-center justify-between">
                 <CardTitle className="text-2xl flex items-center gap-3">
                   <MapIcon className="h-6 w-6" />
-                  {getTypeDisplayName(map.type)}
+                  {getMapName(map)}
                 </CardTitle>
                 <Badge variant={getTypeVariant(map.type)} className="text-sm">
-                  {getTypeDisplayName(map.type)}
+                  {getMapName(map)}
                 </Badge>
               </div>
             </CardHeader>
@@ -101,7 +125,7 @@ export default function MapsPage() {
                 <div className="aspect-video relative rounded-lg overflow-hidden">
                   <Image
                     src={map.imagePath}
-                    alt={`Карта ${getTypeDisplayName(map.type)}`}
+                    alt={`Карта ${getMapName(map)}`}
                     fill
                     className="object-cover"
                   />
@@ -116,7 +140,7 @@ export default function MapsPage() {
                       <Globe className="h-5 w-5 text-primary" />
                       <h3 className="text-xl font-semibold">{country.name}</h3>
                       <Badge variant="outline" className="text-xs">
-                        {getTypeDisplayName(map.type)}
+                        {getMapName(map)}
                       </Badge>
                     </div>
                     
@@ -150,7 +174,7 @@ export default function MapsPage() {
                               {country.name}
                             </Badge>
                             <Badge variant="outline" className="text-xs block w-fit">
-                              {getTypeDisplayName(map.type)}
+                              {getMapName(map)}
                             </Badge>
                           </div>
                         </Card>
