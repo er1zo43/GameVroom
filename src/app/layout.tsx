@@ -9,7 +9,7 @@ const onest = Onest({
 });
 
 export const metadata: Metadata = {
-  title: "Pavel Dimplomchik",
+  title: "GameVroom",
   description: "postavte 5 pashalko",
 };
 

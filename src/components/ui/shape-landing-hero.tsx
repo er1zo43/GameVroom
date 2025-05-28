@@ -74,10 +74,10 @@ function ElegantShape({
 
 function HeroGeometric({
   // badge = "",
-  title1 = "Euro Truck",
-  title2 = "Simulator 2",
-  description = "Ознакомтесь с грузовичками пожалуйста и пятёрочку за диплом бамбам потом отмечать в яндекс нямням",
-  button = "го вниз пжпжжпааж"
+  title1 = "GAME",
+  title2 = "VROOM",
+  description = "Игровой интернет-портал, предоставляющий общую информацию и подробные данные из игрового мира Euro Truck Simulator 2",
+  button = "Информационный портал"
 }: {
   // badge?: string;
   title1?: string;
