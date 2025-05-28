@@ -12,6 +12,7 @@ import {
   Globe,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const navigationItems = [
@@ -95,14 +96,16 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {navigationItems.map((item, index) => (
             <Link key={index} href={item.href}>
-              <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden py-0">
                 <div className="aspect-video relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10" />
                   <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
-                  {/* Placeholder background for image */}
-                  <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center">
-                    <item.icon className="h-16 w-16 text-primary/60" />
-                  </div>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
                   <div className="absolute bottom-4 left-4 right-4 z-30">
                     <h3 className="text-white font-semibold text-xl mb-1">
                       {item.title}
@@ -132,7 +135,7 @@ export default function Home() {
             {resourceLinks.map((link, index) => (
               <Card
                 key={index}
-                className="hover:shadow-md transition-shadow duration-200"
+                className="hover:shadow-md transition-shadow duration-200 py-0"
               >
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">

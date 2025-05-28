@@ -1,6 +1,7 @@
 export interface Map {
   type: "BASE_GAME" | "DLC";
   countries: Country[];
+  name?: string;
   imagePath?: string;
 }
 

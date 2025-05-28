@@ -46,7 +46,7 @@ export default async function TruckDetailPage({ params }: TruckDetailPageProps) 
       </div>
 
       {/* Main Truck Image */}
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden py-0">
         <div className="aspect-video relative">
           <Image
             src={truck.imagePath}

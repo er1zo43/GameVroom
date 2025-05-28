@@ -48,7 +48,7 @@ export default async function TrailerDetailPage({ params }: TrailerDetailPagePro
       </div>
 
       {/* Main Trailer Image */}
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden py-0">
         <div className="aspect-video relative">
           <Image
             src={trailer.imagePath}
@@ -188,7 +188,7 @@ export default async function TrailerDetailPage({ params }: TrailerDetailPagePro
           <Package className="h-6 w-6" />
           <h2 className="text-2xl font-semibold">Типы перевозимых грузов</h2>
         </div>
-        <Card>
+        <Card className="py-0">
           <CardContent className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {trailer.cargoTypesTransported.map((cargoType, index) => (
@@ -204,71 +204,6 @@ export default async function TrailerDetailPage({ params }: TrailerDetailPagePro
           </CardContent>
         </Card>
       </div>
-
-      {/* Additional Information */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Info className="h-5 w-5" />
-            Дополнительная информация
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h4 className="font-semibold text-lg">Характеристики шасси</h4>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">
-                    Общее количество осей:
-                  </span>
-                  <span className="font-medium">{trailer.numberOfAxles}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Подъемные оси:</span>
-                  <span className="font-medium">
-                    {trailer.numberOfLiftAxles}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">
-                    Управляемые оси:
-                  </span>
-                  <span className="font-medium">
-                    {trailer.numberOfSteeredAxles}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h4 className="font-semibold text-lg">Размеры и вес</h4>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">
-                    Снаряженная масса:
-                  </span>
-                  <span className="font-medium">{trailer.curbWeight} кг</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Общая длина:</span>
-                  <span className="font-medium">
-                    {trailer.overallLength} мм
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Объем кузова:</span>
-                  <span className="font-medium">
-                    {trailer.bodyInternalDimensions.height > 0
-                      ? `${Math.round((trailer.bodyInternalDimensions.length * trailer.bodyInternalDimensions.width * trailer.bodyInternalDimensions.height) / 1000000)} м³`
-                      : "Н/Д"}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
 
       {/* Back Button */}
       <div className="text-center pt-8">

@@ -18,7 +18,7 @@ export default function MapsPage() {
 
   const getMapName = (map: typeof etsData.maps[0]) => {
     if (map.type === "BASE_GAME") return "Базовая игра"
-    return map.countries[0].name
+    return map.name || "N/A"
   }
 
   const mapNames = useMemo(() => {
@@ -109,9 +109,6 @@ export default function MapsPage() {
                   <MapIcon className="h-6 w-6" />
                   {getMapName(map)}
                 </CardTitle>
-                <Badge variant={getTypeVariant(map.type)} className="text-sm">
-                  {getMapName(map)}
-                </Badge>
               </div>
             </CardHeader>
             

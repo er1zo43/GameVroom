@@ -113,7 +113,13 @@ export default function TrailersPage() {
 
       {/* Trailers by Group */}
       <div className="space-y-12">
-        {Object.entries(filteredAndGroupedTrailers).map(([groupName, trailers]) => (
+        {Object.entries(filteredAndGroupedTrailers)
+          .sort(([a], [b]) => {
+            if (a === "Standard Trailers") return -1
+            if (b === "Standard Trailers") return 1
+            return a.localeCompare(b)
+          })
+          .map(([groupName, trailers]) => (
           <div key={groupName} className="space-y-6">
             <div className="text-center">
               <h2 className="text-3xl font-semibold">{groupName}</h2>
@@ -125,7 +131,7 @@ export default function TrailersPage() {
                 const trailerSlug = `${trailer.manufacturer}-${trailer.model}`.toLowerCase().replace(/\s+/g, '-')
                 return (
                   <Link key={`${trailer.manufacturer}-${trailer.model}-${index}`} href={`/trailers/${trailerSlug}`}>
-                    <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-200 group">
+                    <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-200 group py-0">
                       <CardContent className="p-0">
                         <div className="aspect-video relative overflow-hidden rounded-t-lg">
                           <Image
@@ -138,9 +144,6 @@ export default function TrailersPage() {
                         <div className="p-4 text-center space-y-2">
                           <h3 className="font-semibold text-lg">{trailer.model}</h3>
                           <Badge variant="secondary">
-                            {trailer.manufacturer}
-                          </Badge>
-                          <Badge variant="outline" className="block">
                             {trailer.bodyType}
                           </Badge>
                         </div>
