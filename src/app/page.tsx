@@ -69,7 +69,7 @@ export default function Home() {
       description: "Сообщество игроков",
     },
     {
-      title: "Обсуждение Euro Truck Simulator 2",
+      title: "Форум Euro Truck Simulator 2",
       url: "https://forum.scssoft.com/viewforum.php?f=3",
       description: "Дополнения и расширения для игры",
     },
@@ -83,10 +83,12 @@ export default function Home() {
       <div className="container mx-auto px-6 space-y-12">
         <div className="text-center space-y-4">
           <h2 className="text-3xl font-bold tracking-tight" id="pididi">
-            Разделы Euro Truck Simulator 2
+            Euro Truck Simulator 2
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Изучите все аспекты игры: от грузовиков и прицепов до карт и DLC
+            Euro Truck Simulator 2 — игра в жанре симулятора дальнобойщика с элементами экономической стратегии. Разрабатывается и издается чешской компанией SCS Software. 
+            Официальный релиз состоялся 18 октября 2012 года, в Steam игра вышла в январе 2013. Является продолжением Euro Truck Simulator, который увидел свет в 2008 году.
+            Игра была создана на собственном движке SCS Software «Prism3D», который был серьезно доработан и оптимизирован. Совершенствование движка ведется параллельно с разработкой новых дополнений.
           </p>
         </div>
 

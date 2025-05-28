@@ -28,6 +28,41 @@ const trucks: Truck[] = [
     ]
   },
   {
+    manufacturer: "DAF",
+    model: "NGD",
+    imagePath: "/public/images/trucks/daf/daf_ngd.png",
+    releaseDate: new Date("10.06.2021"),
+    engines: [
+      { name: "МХ-11 270", power: "367 л. с. (270кВт)", torque: "1 800/1 950 Нм на 900-1 400 об/м", cost: 12000, unlockLevel: 2 },
+      { name: "МХ-11 300", power: "408 л. с. (300кВт)", torque: "2 000/2 150 Нм на 900-1 400 об/м", cost: 12600, unlockLevel: 2 },
+      { name: "МХ-13 315", power: "428 л. с. (315кВт)", torque: "2 150/2 300 Нм на 900-1 400 об/м", cost: 13320, unlockLevel: 6 },
+      { name: "МХ-11 330", power: "449 л. с. (330кВт)", torque: "2 200/2 350 Нм на 900-1 400 об/м", cost: 15000, unlockLevel: 8 },
+      { name: "МХ-13 355", power: "483 л. с. (355кВт)", torque: "2 350/2 500 Нм на 900-1 400 об/м", cost: 19800, unlockLevel: 14 },
+      { name: "МХ-13 390", power: "530 л. с. (390кВт)", torque: "2 550/2 700 Нм на 900-1 400 об/м", cost: 22200, unlockLevel: 18 }
+    ],
+    transmissions: [
+      { name: "ZF 12TX2420TD", gears: 12, ratioValues: "16.69-1.00", finalDriveRatio: 2.64, cost: 10500, unlockLevel: 0 },
+      { name: "ZF 12TX2610TO", gears: 12, ratioValues: "12.92-0.77", finalDriveRatio: 3.08, cost: 11500, unlockLevel: 10 },
+      { name: "ZF 16TX2640TO", gears: 16, ratioValues: "14.68-0.82", finalDriveRatio: 3.40, cost: 13500, unlockLevel: 16 },
+      { name: "ZF 12TX2421TD R", gears: 12, ratioValues: "16.69-1.00", finalDriveRatio: 2.64, cost: 16500, unlockLevel: 0 },
+      { name: "ZF 12TX2611TO R", gears: 12, ratioValues: "12.92-0.77", finalDriveRatio: 3.08, cost: 17500, unlockLevel: 10 },
+      { name: "ZF 16TX2641TO R", gears: 16, ratioValues: "14.68-0.82", finalDriveRatio: 3.40, cost: 19500, unlockLevel: 16 }
+    ],
+    chassis: [
+      { wheelFormula: "FT 4x2", totalNumberOfAxles: 2, numberOfDrivenAxles: 1, wheelbase: "3989", cost: 29400, unlockLevel: 4 },
+      { wheelFormula: "FTG 6x2", totalNumberOfAxles: 3, numberOfDrivenAxles: 1, wheelbase: "XXX", cost: 32880, unlockLevel: 8 },
+      { wheelFormula: "FTS 6x2", totalNumberOfAxles: 3, numberOfDrivenAxles: 1, wheelbase: "XXX", cost: 32880, unlockLevel: 8 },
+      { wheelFormula: "FTN 6x2", totalNumberOfAxles: 3, numberOfDrivenAxles: 1, wheelbase: "XXX", cost: 40920, unlockLevel: 10 },
+      { wheelFormula: "FTT 6x4", totalNumberOfAxles: 3, numberOfDrivenAxles: 2, wheelbase: "XXX", cost: 53880, unlockLevel: 14 },
+      { wheelFormula: "FTM 8x4", totalNumberOfAxles: 4, numberOfDrivenAxles: 2, wheelbase: "XXX", cost: 82140, unlockLevel: 16 }
+    ],
+    cabins: [
+      { name: "XF", cost: 19400, unlockLevel: 8 },
+      { name: "XG", cost: 39960, unlockLevel: 8 },
+      { name: "XG+", cost: 63240, unlockLevel: 12 }
+    ]
+  },
+  {
     manufacturer: "Volvo",
     model: "FH16",
     imagePath: "/images/trucks/volvo_fh16.jpg",
