@@ -248,43 +248,43 @@ const trucks: Truck[] = [
 
 const trailers: Trailer[] = [
   {
-    manufacturer: "Schwarzmüller",
-    model: "S1",
-    imagePath: "/images/trailers/schwarzmuller_s1.jpg",
-    trailerType: "Semi-trailer",
-    bodyType: "Curtain sider",
+    manufacturer: "Standard Trailers",
+    model: "L0G",
+    imagePath: "/images/trailers/standard_log.png",
+    trailerType: "Одиночный прицеп",
+    bodyType: "Лесовоз",
     bodyInternalDimensions: {
       length: 13620,
-      height: 2700,
-      width: 2480
+      height: 2650,
+      width: 2550
     },
-    curbWeight: 7100,
+    curbWeight: 5900,
     numberOfAxles: 3,
     numberOfLiftAxles: 1,
     numberOfSteeredAxles: 0,
-    overallLength: 13620,
-    cargoTypesTransported: ["Food", "Textiles", "Electronics", "Machinery"]
+    overallLength: 13.7,
+    cargoTypesTransported: ["Брёвна", "Балки", "Трубы"]
   },
   {
-    manufacturer: "Krone",
-    model: "Profi Liner",
-    imagePath: "/images/trailers/krone_profi_liner.jpg",
-    trailerType: "Semi-trailer",
-    bodyType: "Curtain sider",
-    bodyInternalDimensions: {
-      length: 13620,
-      height: 2700,
-      width: 2480
-    },
-    curbWeight: 6800,
-    numberOfAxles: 3,
-    numberOfLiftAxles: 1,
-    numberOfSteeredAxles: 0,
-    overallLength: 13620,
-    cargoTypesTransported: ["Food", "Beverages", "Paper", "Chemicals"]
+  manufacturer: "Standard Trailers",
+  model: "STD",
+  imagePath: "/images/trailers/standard_std.png",
+  trailerType: "Одиночный прицеп",
+  bodyType: "Шторный",
+  bodyInternalDimensions: {
+    length: 13620,
+    height: 2650,
+    width: 2480
+  },
+  curbWeight: 5860,
+  numberOfAxles: 2,
+  numberOfLiftAxles: 0,
+  numberOfSteeredAxles: 0,
+  overallLength: 13.7,
+  cargoTypesTransported: ["Общий", "Сухие товары"]
   },
   {
-    manufacturer: "Standard Trilers",
+    manufacturer: "Standard Trailers",
     model: "FLB",
     imagePath: "/images/trailers/standard_flb.png",
     trailerType: "Одиночный прицеп",
@@ -298,44 +298,80 @@ const trailers: Trailer[] = [
     numberOfAxles: 2,
     numberOfLiftAxles: 0,
     numberOfSteeredAxles: 0,
-    overallLength: 13700,
+    overallLength: 13.7,
     cargoTypesTransported: ["Строительное оборудование", "Строительные материалы"]
   },
   {
-    manufacturer: "Kogel",
-    model: "Port Tank",
-    imagePath: "/images/trailers/kogel_port_tank.jpg",
-    trailerType: "Semi-trailer",
-    bodyType: "Tank",
-    bodyInternalDimensions: {
-      length: 12000,
-      height: 4000,
-      width: 2500
-    },
-    curbWeight: 7500,
-    numberOfAxles: 3,
-    numberOfLiftAxles: 0,
-    numberOfSteeredAxles: 0,
-    overallLength: 13620,
-    cargoTypesTransported: ["Fuel", "Chemicals", "Food liquids"]
+  manufacturer: "Krone",
+  model: "Profi Liner Building",
+  imagePath: "/images/trailers/krone_profi_liner_building.png",
+  trailerType: "Одиночный прицеп",
+  bodyType: "Бортовой",
+  bodyInternalDimensions: {
+    length: 13620,
+    height: 2650,
+    width: 2480
+  },
+  curbWeight: 6360,
+  numberOfAxles: 3,
+  numberOfLiftAxles: 1,
+  numberOfSteeredAxles: 0,
+  overallLength: 13.7,
+  cargoTypesTransported: ["Строительное оборудование", "Строительные материалы"]
   },
   {
-    manufacturer: "Wielton",
-    model: "NW 3",
-    imagePath: "/images/trailers/wielton_nw3.jpg",
-    trailerType: "Semi-trailer",
-    bodyType: "Flatbed",
+    manufacturer: "Krone",
+    model: "Cool Liner",
+    imagePath: "/images/trailers/krone_cool_liner.png",
+    trailerType: "Одиночный прицеп",
+    bodyType: "Рефрижератор",
     bodyInternalDimensions: {
-      length: 13620,
-      height: 0,
-      width: 2480
+      length: 13310,
+      height: 2650,
+      width: 2470
     },
-    curbWeight: 6200,
+    curbWeight: 8360,
     numberOfAxles: 3,
     numberOfLiftAxles: 1,
     numberOfSteeredAxles: 0,
-    overallLength: 13620,
-    cargoTypesTransported: ["Construction materials", "Machinery", "Steel", "Containers"]
+    overallLength: 13.7,
+    cargoTypesTransported: ["Замороженные товары", "Охлажденные товары"]
+  },
+  {
+    manufacturer: "Schwarzmüller",
+    model: "Низкорамный трал с гуськом",
+    imagePath: "/images/trailers/schwarz_tral.png",
+    trailerType: "Одиночный прицеп",
+    bodyType: "Низкорамный трал",
+    bodyInternalDimensions: {
+      length: 9230,
+      height: 3070,
+      width: 2550
+    },
+    curbWeight: 8800,
+    numberOfAxles: 3,
+    numberOfLiftAxles: 0,
+    numberOfSteeredAxles: 1,
+    overallLength: 14040,
+    cargoTypesTransported: ["Тяжёлая техника", "Высокие грузы"]
+  },
+  {
+    manufacturer: "Schwarzmüller",
+    model: "Пищевая цистерна",
+    imagePath: "/images/trailers/schwarz_food_tank.png",
+    trailerType: "Одиночный прицеп",
+    bodyType: "Пищевая цистерна",
+    bodyInternalDimensions: {
+      length: 13620,
+      height: 2860,
+      width: 2480
+    },
+    curbWeight: 6800,
+    numberOfAxles: 3,
+    numberOfLiftAxles: 0,
+    numberOfSteeredAxles: 0,
+    overallLength: 11300,
+    cargoTypesTransported: ["Пищевые жидкости"]
   }
 ]
 
@@ -894,7 +930,7 @@ const dlcs: DLC[] = [
   },
   {
     name: "Heavy Cargo Pack",
-    tag: "Грузы и трейлеры",
+    tag: "Набор грузов",
     content: "8 негабаритных грузов, 2 трейлера",
     releaseDate: new Date("2017-05-12")
   },
@@ -912,7 +948,7 @@ const dlcs: DLC[] = [
   },
   {
     name: "Special Transport",
-    tag: "Грузы и трейлеры",
+    tag: "Набор грузов",
     content: "11 тяжёлых грузов, 4 специальных трейлера, новые игровые механики",
     releaseDate: new Date("2017-12-13")
   },
@@ -1026,7 +1062,7 @@ const dlcs: DLC[] = [
   },
   {
     name: "Volvo Construction Equipment DLC",
-    tag: "Грузы и трейлеры",
+    tag: "Набор грузов",
     content: "7 лицензированных грузов с тематикой Volvo для перевозки",
     releaseDate: new Date("2021-09-23")
   },
@@ -1080,7 +1116,7 @@ const dlcs: DLC[] = [
   },
   {
     name: "JCB Equipment Pack",
-    tag: "Грузы и трейлеры",
+    tag: "Набор грузов",
     content: "8 лицензированных грузов с тематикой JCB для перевозки + новые аксессуары в салон тягача",
     releaseDate: new Date("2024-05-23")
   },

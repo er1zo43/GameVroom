@@ -45,14 +45,6 @@ export default async function TrailerDetailPage({ params }: TrailerDetailPagePro
         <h1 className="text-4xl font-bold tracking-tight">
           {trailer.manufacturer} {trailer.model}
         </h1>
-        <div className="flex justify-center gap-2">
-          <Badge variant="secondary" className="text-lg px-3 py-1">
-            {trailer.manufacturer}
-          </Badge>
-          <Badge variant="outline" className="text-lg px-3 py-1">
-            {trailer.bodyType}
-          </Badge>
-        </div>
       </div>
 
       {/* Main Trailer Image */}
@@ -118,7 +110,7 @@ export default async function TrailerDetailPage({ params }: TrailerDetailPagePro
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Общая длина</p>
-                <p className="font-semibold">{trailer.overallLength} мм</p>
+                <p className="font-semibold">{trailer.overallLength} м</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Количество осей</p>
