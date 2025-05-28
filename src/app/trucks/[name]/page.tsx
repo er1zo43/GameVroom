@@ -11,13 +11,14 @@ import Link from "next/link"
 import etsData from "@/lib/mock/ets"
 
 interface TruckDetailPageProps {
-  params: {
+  params: Promise<{
     name: string
-  }
+  }>
 }
 
-export default function TruckDetailPage({ params }: TruckDetailPageProps) {
-  const decodedName = decodeURIComponent(params.name)
+export default async function TruckDetailPage({ params }: TruckDetailPageProps) {
+  const { name } = await params;
+  const decodedName = decodeURIComponent(name)
   const truck = etsData.trucks.find(t => 
     `${t.manufacturer}-${t.model}`.toLowerCase().replace(/\s+/g, '-') === decodedName.toLowerCase()
   )
