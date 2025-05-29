@@ -79,7 +79,7 @@ export default async function TruckDetailPage({ params }: TruckDetailPageProps) 
                 <p className="font-semibold">{truck.model}</p>
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Дата выпуска</p>
+                <p className="text-sm text-muted-foreground">Дата релиза</p>
                 <p className="font-semibold">{truck.releaseDate.toLocaleDateString('ru-RU')}</p>
               </div>
             </div>
